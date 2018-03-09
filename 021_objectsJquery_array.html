@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Algún texto</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+<ul>
+  <li>item1i</li>
+  <li>item2i</li>
+  <li>item3i</li>
+  <li>item4i</li>
+  <li>item5i</li>
+  <li>item6i</li>
+  <li>item7i</li>
+  <li>item8i</li>
+  <li>item9i</li>
+  <li>item10i</li>
+  <li>item11i</li>
+  <li>item12i</li>
+  <li>item13i</li>
+  <li>item14i</li>
+  <li>item15i</li>
+  <li>item16i</li>
+  <li>item17i</li>
+  <li>item18i</li>
+  <li>item19i</li>
+  <li>item20i</li>
+  <li>item21i</li>
+  <li>item22i</li>
+  <li>item23i</li>
+  <li>item24i</li>
+  <li>item25i</li>
+  <li>item26i</li>
+  <li>item27i</li>
+  <li>item28i</li>
+  <li>item29i</li>
+  <li>item30i</li>
+  <li>item31i</li>
+  <li>item32i</li>
+  <li>item33i</li>
+  <li>item34i</li>
+  <li>item35i</li>
+  <li>item36i</li>
+  <li>item37i</li>
+  <li>item38i</li>
+  <li>item39i</li>
+  <li>item40i</li>
+  <li>item41i</li>
+  <li>item42i</li>
+  <li>item43i</li>
+  <li>item44i</li>
+  <li>item45i</li>
+  <li>item46i</li>
+  <li>item47i</li>
+  <li>item48i</li>
+  <li>item49i</li>
+  <li>item50i</li>
+</ul>
+
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+    var arr = $('li');
+    var iteraciones = 100000;
+
+    console.time('ciclo nativo');
+      for (var i = 0; i < iteraciones; i++) {
+
+      var largo = arr.length;
+        for (var j = 0; j < largo; j++) {
+          arr[j];
+        }
+
+      }
+    console.timeEnd('ciclo nativo');
+
+
+        console.time('ciclo foreach');
+          for (var x = 0; x < iteraciones; x++) {
+            arr.each(function(i, val){
+              this;
+            });
+          }
+        console.timeEnd('ciclo foreach');
+
+    </script>
+
+  </body>
+</html>
