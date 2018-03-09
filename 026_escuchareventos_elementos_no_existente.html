@@ -7,14 +7,7 @@
     <!-- Estilo del Boostrap 4 -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/estilo.css">
-    <style>
-      #mensaje {
-        display: block;
-      }
-      html.JS #mensaje {
-        display: none;
-      }
-    </style>
+
   </head>
   <body>
 
@@ -23,19 +16,31 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
     </p>
 
+  <ul id="lista">
+    <li>Vieja item</li>
+    <li>Vieja item</li>
+    <li>Vieja item</li>
+    <li>Vieja item</li>
+    <li>Vieja item</li>
+  </ul>
 
 
-    <div id="mensaje">
-      Esta pagina require JACSCRIPT!
-    </div>
 
     <!-- Librería de jQuery -->
     <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
     <script>
-    $(document).ready(function(){
-      $('html').addClass('JS');
+
+    var $lista = $("#lista");
+    let contador = 0;
+
+    $lista.on('click','li',function(){
+      $(this).remove();
+      contador++;
+
+      $lista.append('<li>Nuevo Item '+contador+' </li>');
 
     });
+
 
     </script>
 

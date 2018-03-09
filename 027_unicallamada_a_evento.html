@@ -7,14 +7,7 @@
     <!-- Estilo del Boostrap 4 -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/estilo.css">
-    <style>
-      #mensaje {
-        display: block;
-      }
-      html.JS #mensaje {
-        display: none;
-      }
-    </style>
+
   </head>
   <body>
 
@@ -23,19 +16,19 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
     </p>
 
+    <button type="button" id="btnAccion">Clik</button>
 
 
-    <div id="mensaje">
-      Esta pagina require JACSCRIPT!
-    </div>
 
     <!-- Librería de jQuery -->
     <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
     <script>
-    $(document).ready(function(){
-      $('html').addClass('JS');
 
-    });
+      var $botton = $("#btnAccion");
+
+      $botton.one('click',function(){
+        alert('click me');
+      });
 
     </script>
 
