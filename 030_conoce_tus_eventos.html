@@ -17,11 +17,12 @@
     </p>
 
 		<div id="holder">
-			<div id="button1"></div>
-			<div id="button2"></div>
-			<div id="button3"></div>
-			<div id="button4"></div>
-			<div id="button5"></div>
+			<button id="button1">1</button>
+			<button id="button2">2</button>
+			<button id="button3">3</button>
+			<button id="button4">4</button>
+			<button id="button5" style="float:right">Clean</button>
+
 		</div>
 
 
@@ -31,10 +32,33 @@
     <script>
 
 			var boton1 = $("#button1"),
-					boton1 = $("#button1"),
-					boton1 = $("#button1"),
-					boton1 = $("#button1"),
-					boton1 = $("#button1");
+					boton2 = $("#button2"),
+					boton3 = $("#button3"),
+					boton4 = $("#button4"),
+					boton5 = $("#button5");
+
+          boton1.on('click',function(){
+            console.log('click');
+          });
+
+          boton2.on('mouseenter.temp mouseleave.temp',function(){
+            console.log('Entrar / salid');
+          });
+
+          boton3.on('click',Math.round(Math.random()*20),function(e){
+            console.log(e.data);
+          });
+          //name space
+          boton4.on('click.temp',function(){
+            console.log('temp disparado');
+          });
+
+
+          boton5.on('click',function(){
+            console.clear();
+            $('button').off('.temp');
+            console.log('eventos de botones .temp han sido eliminados');
+          });
     </script>
 
   </body>
