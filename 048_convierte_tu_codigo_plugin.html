@@ -15,10 +15,44 @@
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
     </p>
-    
+    <div class="col-md-6">
+      <label for="">Nombre</label>
+      <input type="text" name="" id="txtNombre" value="" class="form-control" required>
+
+    </div>
     <!-- Librería de jQuery -->
     <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
     <script>
+      $.fn.requerido = function(){
+              var input = $(this),
+                  ayuda = '';
+
+                  if( input.attr('required') ) {
+                    mostrar_error(input);
+                  }
+
+                  input.on('keyup',function(){
+                    if(input.val().length>0){
+                      input.next().remove();
+                      input.parent().removeClass('has-danger').end()
+                           .parent().addClass('has-success');
+                    }else{
+                      input.next().remove();
+                      mostrar_error(input);
+                    }
+                  });
+
+                  function mostrar_error(input){
+                    ayuda ='';
+                    ayuda+='<div class="text-danger">';
+                      ayuda+='Este campo es necesario.';
+                    ayuda+='</div>';
+                    input.after(ayuda);
+                    input.parent().addClass('has-danger');
+                  }
+      }
+
+      $('#txtNombre').requerido();
 
 
     </script>
