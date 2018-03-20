@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Algún texto</h1>
+    <p class="clase">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+
+    <div class="clase">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat magni distinctio itaque, qui illum dolor possimus dolore veritatis, tenetur dolores temporibus vero ad perferendis cum saepe incidunt eaque soluta. .
+    </div>
+    <div class="clase">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat magni distinctio itaque, qui illum dolor possimus dolore veritatis, tenetur dolores temporibus vero ad perferendis cum saepe incidunt eaque soluta. Explicabo.
+    </div>
+    <p class="clase">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sapiente necessitatibus laborum, veniam mollitia illo, quod nihil in magni enim, totam quidem commodi maiores reiciendis architecto, facere aperiam quisquam illum.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+    $.expr.pseudos.contiene = $.expr.createPseudo(function(msg){
+      return function(elem){
+        return (elem.textContext || elem.innerText || jQuery(elem).text() || '' )
+                .toLowerCase()
+                .indexOf(msg.toLowerCase()) > -1;
+      }
+    });
+
+    var select = $(".clase:contiene(Explicabo)");
+    console.log(select);
+    select.remove();
+
+
+    </script>
+
+  </body>
+</html>
