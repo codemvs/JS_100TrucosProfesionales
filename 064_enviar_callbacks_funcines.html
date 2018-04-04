@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+    <input type="text" id="input3">
+    <h1>Algún texto</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+    <p class="lorem">
+       ipsum dolor sit amet, consectetur automovil adipisicing elit. Placeat cupiditate explicabo nihil, sit dolor totam necessitatibus voluptatem voluptate fugit repellendus, illum distinctio ullam earum maiores molestias ea temporibus deserunt ipsa!
+    </p>
+    <p class="lorem">
+      Lorem ipsum dolor sit amet, consectetur cars adipisicing elit. Iusto dignissimos qui quisquam earum, corporis repellat ducimus iure sunt tenetur eaque in odio dolorem facere at fugit, tempora aspernatur sit quod.
+    </p>
+    <p class="lorem">
+       ipsum dolor sit amet, consectetur adipisicing elit. Facere dolores corporis ex est, commodi optio labore aperiam, nisi deserunt sed itaque dolorum, velit esse nulla. Soluta est laudantium, porro corporis.
+    </p>
+    <p class="lorem">
+       ipsum dolor sit amet, consectetur casa adipisicing elit. Labore sunt repellat provident non repudiandae praesentium libero, fugit animi aliquam et ea recusandae temporibus, eum nihil autem quaerat iure error. Minus?
+    </p>
+    <p class="lorem">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint id numquam rerum blanditiis aliquid nemo enim, amet eum architecto? Ipsam cumque quod eligendi architecto, exercitationem molestiae obcaecati facere magnam quo!
+    </p>
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+    $('input[type=text]').val(function(){
+      return this.id;
+    });
+
+    var p = $('.lorem');
+    //excluir todos los p que tengan la palabra impsum
+    p.filter(function(){
+      return $(this).text().match(/Lorem/i)!=null;
+    }).hide();
+
+    //filtrar solo visibles
+    p=p.filter(':visible');
+    //anteponer un numero a los textos
+    p.prepend(function(index){
+        return ++index +")";
+    });
+
+    //cambiar css a los parrafos impares
+    p.css('color',function(index){
+        return index % 2 == 1 ? 'blue':'green'; //impar
+    });
+    //controlar si el parrafo es demasiado grande
+    p.html(function(){
+      var contenido = $(this).text();
+      if(contenido.length >40 ) return contenido.slice(0,40)+"...";
+    });
+
+    //primer parrafo en verde
+    console.log('El primer parrafo en verde? ',p.eq(2).is(function(){
+      console.log($(this).css('color'));
+      return $(this).css('color').match(/green|rgb\(0, 128, 0\)|#00F00/);
+    }));
+    </script>
+
+  </body>
+</html>

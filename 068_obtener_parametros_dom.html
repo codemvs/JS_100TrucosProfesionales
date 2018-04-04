@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <style media="screen">
+      #div-notificaciones{
+        position: fixed;
+        top: 20px;
+        right: 0px;
+        width: 100px;
+        height: 100px;
+        color: blue;
+      }
+      .notificacion {
+        width: 150px;
+        height: 100px;
+        background: rgb(87,13,113);
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+  <div id="div-notificaciones">
+
+ </div>
+
+    <h1>Algún texto</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+
+<button type="button">
+  Crear nuevo elemento
+</button>
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+    var divNotificaciones = $('#div-notificaciones');
+
+    $('button').on('click',function(){
+      var numero = Math.random();
+          numero = Math.round(numero * 10);
+      var c ="";
+         c = '<div class="notificacion" data-number='+numero+'>';
+            c += 'Numero: '+numero;
+            c += '<a href="#">X</a>';
+          c += '</div>';
+
+    divNotificaciones.append(c);
+
+    });
+
+    divNotificaciones.on('click','.notificacion',function(){
+      console.log($(this).data('number'));
+    });
+
+    divNotificaciones.on('click','.notificacion a',function(){
+      $(this).parent().slideUp(500,function(){
+        $(this).remove();
+      });
+    });
+    </script>
+
+  </body>
+</html>

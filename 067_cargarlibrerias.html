@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+
+
+  </head>
+  <body>
+
+    <h1>Algún texto</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+
+    <!-- Librería de jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
+
+    <script>
+    head.load(
+      "assets/css/bootstrap.min.css",
+      "assets/css/estilo.css",
+      "assets/libs/jquery-3.min.js",
+      function(){
+        alert("Archivos cargados");
+      }
+    );
+
+    </script>
+
+  </body>
+</html>
