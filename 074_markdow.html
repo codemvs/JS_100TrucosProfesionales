@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Algún texto</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+
+    <textarea id="txtmark" rows="8" cols="80" cols="form-control">
+
+    </textarea>
+    <br>
+    <button type="button" class="btn btn-primary">Btn</button>
+    <hr>
+    <p id="markTohtml"></p>
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script src="assets/libs/mmd.min.js" charset="utf-8"></script>
+    <script>
+//https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#headers
+  var mark = $('#txtmark');
+  var markTohtml = $('#markTohtml');
+
+  $('button').click(function(){
+    var texto = mark.val();
+
+    var salida = mmd(texto);
+
+    markTohtml.html( salida );
+
+  });
+
+    </script>
+
+  </body>
+</html>

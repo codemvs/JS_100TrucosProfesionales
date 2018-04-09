@@ -21,12 +21,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" charset="utf-8"></script>
     <script>
     var arr = [53,5,6,13,77,-23,55,404];
+
+    console.log('Numeros pares', _.filter(arr, function(num){
+        return num % 2 === 0;
+    }));
+
+    console.log('Existe el numero 13? ',_.contains(arr, 13));
+    console.log('Max: ',_.max(arr));
+    console.log('Sort: ',arr.sort(function(a,b){ return a-b; }));
+    console.log('Orden random: ',_.shuffle(arr));
+    console.log('Unques: ',_.unique(arr));
+
+    console.log('--------------------');
+
     var obj = {
       nombre:'Fernando Herrera',
       edad:30,
       peso:'150lb'
     };
 
+    console.log('Key: ',_.keys(obj));
+    console.log('Valores: ',_.values(obj));
+    console.log('Pick: ',_.pick(obj, 'edad', 'peso'));
+    console.log('Len: ',_.size(obj));
     </script>
 
   </body>
